@@ -7,7 +7,7 @@ import { GlowingEffect } from '../components/ui/glowing-effect';
 
 const milestones = [
   { year: '2004', title: 'Company Founded',       description: 'Established in Hyderabad with a vision to provide safety solutions.' },
-  { year: '2005', title: 'DGMS Approval',         description: 'Received first DGMS approval for fire Detection and Suppression systems.' },
+  { year: '2005', title: 'DGMS Approval',         description: 'Received first DGMS approval for fire detection and suppression systems.' },
   { year: '2010', title: 'ISO Certification',     description: 'Achieved ISO 9001 and ISO 14001 certifications.' },
   { year: '2015', title: 'Pan-India Expansion',   description: 'Extended service network across all major mining regions.' },
   { year: '2020', title: '10000+ Installations',   description: 'Milestone of 10000+ successful system installations.' },
@@ -42,7 +42,7 @@ const About = () => {
             About <span className="text-gradient-flame">Associated Engg.</span>
           </h1>
           <p className="text-lg text-white/70 max-w-3xl animate-fade-up delay-200">
-            India's trusted partner for automatic fire Detection and Suppression systems in the mining and construction industry.
+            India's trusted partner for automatic fire detection and suppression systems in the mining and construction industry.
           </p>
         </div>
       </section>
@@ -111,7 +111,7 @@ const About = () => {
               {
                 icon: Target,
                 title: 'Our Mission',
-                text: 'To protect lives and assets through innovative fire Detection and Suppression technology, delivering reliable solutions that exceed regulatory requirements and customer expectations.',
+                text: 'To protect lives and assets through innovative fire detection and suppression technology, delivering reliable solutions that exceed regulatory requirements and customer expectations.',
               },
             ].map((item) => (
               <div key={item.title} className="relative p-[2px] rounded-2xl md:rounded-3xl hover:-translate-y-2 transition-transform duration-300">
@@ -136,7 +136,7 @@ const About = () => {
         <div className="container-full">
           <div className="text-center mb-12">
             <p className="text-flame-orange text-sm font-semibold uppercase tracking-[0.2em] mb-3">Our Advantages</p>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground">Why Choose US?</h2>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground">Why Choose Us?</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {whyPoints.map((item, i) => (
@@ -259,7 +259,7 @@ const About = () => {
             <p className="text-flame-orange text-sm font-semibold uppercase tracking-[0.2em] mb-3">Global Reach</p>
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground">Where Our Products Are</h2>
             <p className="text-muted-foreground mt-6 max-w-2xl mx-auto lg:mx-0 text-base lg:text-lg">
-              Our advanced fire Detection and Suppression systems are securing heavy machinery across various international mining and construction hubs. We proudly serve industry leaders across the globe, bringing safety to the harshest environments.
+              Our advanced fire detection and suppression systems are securing heavy machinery across various international mining and construction hubs. We proudly serve industry leaders across the globe, bringing safety to the harshest environments.
             </p>
           </div>
           <div className="w-full lg:w-[60%] xl:w-[65%] flex-shrink-0 -mr-4 lg:-mr-32 relative">

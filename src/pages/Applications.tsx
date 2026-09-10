@@ -54,7 +54,7 @@ const Applications = () => {
             <span className="text-gradient-flame">Applications</span>
           </h1>
           <p className="text-lg text-white/55 max-w-3xl animate-fade-up delay-200">
-            Our fire Detection and Suppression and safety systems are designed for diverse heavy machinery across multiple industries.
+            Our fire detection, suppression, and safety systems are designed for diverse heavy machinery across multiple industries.
           </p>
         </div>
       </section>
@@ -131,7 +131,7 @@ const Applications = () => {
               <p className="text-flame-orange text-sm font-semibold uppercase tracking-[0.2em] mb-3">Regulatory</p>
               <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground">DGMS Compliance</h2>
               <p className="text-muted-foreground mt-4 text-base lg:text-lg leading-relaxed max-w-3xl mx-auto">
-                The Directorate General of Mines Safety (DGMS) mandates fire Detection and Suppression systems for heavy machinery
+                The Directorate General of Mines Safety (DGMS) mandates fire detection and suppression systems for heavy machinery
                 in mining operations. Our AFPS systems meet all DGMS guidelines.
               </p>
             </div>
