@@ -23,7 +23,7 @@ export default function Projects() {
           </h1>
           <p className="text-lg text-white/70 max-w-2xl animate-fade-up delay-200">
             Real-world deployments across India's leading mining and construction operations.
-            See how AEI's fire protection systems safeguard lives and equipment.
+            See how AEI's fire detection and suppression systems safeguard lives and equipment.
           </p>
 
           {/* Stats row */}
@@ -149,7 +149,7 @@ export default function Projects() {
             Want to be our next <span className="text-gradient-flame">success story?</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-            Talk to our engineers about protecting your fleet with India's most trusted DGMS-approved fire protection systems.
+            Talk to our engineers about protecting your fleet with India's most trusted DGMS-approved fire detection and suppression systems.
           </p>
           <Link
             to="/contact?type=general"

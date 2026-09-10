@@ -49,7 +49,7 @@ export function CTASection() {
           Ready to Protect<br className="hidden sm:block" /> Your Fleet?
         </h2>
         <p className="text-white/75 max-w-3xl mx-auto mb-10 text-lg lg:text-xl leading-relaxed">
-          Get in touch with our experts to discuss your fire protection requirements.
+          Get in touch with our experts to discuss your fire detection and suppression systems requirements.
           We provide customized solutions for all types of heavy machinery.
         </p>
 

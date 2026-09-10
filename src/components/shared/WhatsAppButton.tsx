@@ -1,6 +1,6 @@
 const WHATSAPP_NUMBER = "917995328191"; // +91 79953 28191 (no spaces or +)
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello! I'm interested in AEI FireGuard Systems products. Could you please provide more information?"
+  "Hello! I'm interested in AEI Fire Detection and Suppression Systems products. Could you please provide more information?"
 );
 
 export const WhatsAppButton = () => {

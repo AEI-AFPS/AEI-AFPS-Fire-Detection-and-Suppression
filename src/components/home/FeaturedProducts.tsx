@@ -7,7 +7,7 @@ import { NoiseBackground } from "@/components/ui/noise-background";
 const categories = [
   {
     id: 'fire-detection',
-    name: 'Fire Protection Systems',
+    name: 'Fire Detection and Suppression Systems',
     description: 'DGMS-approved automatic fire suppression for all HEMM types',
     icon: Flame,
     accent: 'text-flame-crimson bg-flame-crimson/10 border-flame-crimson/25',

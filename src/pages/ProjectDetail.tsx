@@ -242,7 +242,7 @@ export default function ProjectDetail() {
             Ready for a similar solution?
           </h2>
           <p className="text-muted-foreground mb-6 max-w-lg mx-auto text-sm">
-            Our engineers are ready to assess your fleet and design a custom fire protection system that meets DGMS requirements.
+            Our engineers are ready to assess your fleet and design a custom fire detection and suppression system that meets DGMS requirements.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link

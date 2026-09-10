@@ -50,7 +50,7 @@ const Advancements = () => {
             Next-Generation <span className="text-gradient-flame">Platform</span>
           </h1>
           <p className="text-lg md:text-xl text-white/60 max-w-2xl animate-fade-up delay-200 leading-relaxed">
-            We are revolutionizing heavy machinery fire protection by bridging the gap between robust mechanical systems and intelligent digital oversight.
+            We are revolutionizing heavy machinery fire Detection and Suppression by bridging the gap between robust mechanical systems and intelligent digital oversight.
           </p>
         </div>
       </section>

@@ -24,7 +24,7 @@ const BROCHURES = [
   {
     id: 'afps',
     label: 'AFPS Products Brochure',
-    description: 'Automatic Fire Protection Systems catalogue',
+    description: 'Automatic Fire Detection and Suppression Systems catalogue',
   },
   {
     id: 'general',
