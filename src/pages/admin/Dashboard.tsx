@@ -6,10 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import ProductsManager from '../../components/admin/ProductsManager';
 import ProjectsManager from '../../components/admin/ProjectsManager';
 import TestimonialsManager from '../../components/admin/TestimonialsManager';
+import AwardsManager from '../../components/admin/AwardsManager';
 import { supabase } from '../../lib/supabase';
 
 export default function AdminDashboard() {
-  const [activeTab, setActiveTab] = useState<'products' | 'projects' | 'testimonials'>('products');
+  const [activeTab, setActiveTab] = useState<'products' | 'projects' | 'testimonials' | 'awards'>('products');
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -41,13 +42,13 @@ export default function AdminDashboard() {
         </div>
 
         {/* Main Layout */}
-        <div className="container-full py-8 flex flex-col md:flex-row gap-8">
+        <div className="container-full py-8 flex flex-col md:flex-row gap-8 min-w-0">
           {/* Sidebar Nav */}
           <aside className="w-full md:w-64 shrink-0">
-            <div className="flex flex-row md:flex-col gap-2">
+            <div className="flex flex-row md:flex-col gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
               <button
                 onClick={() => setActiveTab('products')}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm w-full ${
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all font-medium text-sm shrink-0 md:w-full ${
                   activeTab === 'products'
                     ? 'bg-gradient-flame text-white shadow-flame'
                     : 'bg-card text-muted-foreground hover:bg-muted hover:text-foreground border border-border/50'
@@ -58,7 +59,7 @@ export default function AdminDashboard() {
               </button>
               <button
                 onClick={() => setActiveTab('projects')}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm w-full ${
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all font-medium text-sm shrink-0 md:w-full ${
                   activeTab === 'projects'
                     ? 'bg-gradient-flame text-white shadow-flame'
                     : 'bg-card text-muted-foreground hover:bg-muted hover:text-foreground border border-border/50'
@@ -69,7 +70,7 @@ export default function AdminDashboard() {
               </button>
               <button
                 onClick={() => setActiveTab('testimonials')}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm w-full ${
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all font-medium text-sm shrink-0 md:w-full ${
                   activeTab === 'testimonials'
                     ? 'bg-gradient-flame text-white shadow-flame'
                     : 'bg-card text-muted-foreground hover:bg-muted hover:text-foreground border border-border/50'
@@ -78,17 +79,30 @@ export default function AdminDashboard() {
                 <Star className="h-4 w-4" />
                 Testimonials
               </button>
+              <button
+                onClick={() => setActiveTab('awards')}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all font-medium text-sm shrink-0 md:w-full ${
+                  activeTab === 'awards'
+                    ? 'bg-gradient-flame text-white shadow-flame'
+                    : 'bg-card text-muted-foreground hover:bg-muted hover:text-foreground border border-border/50'
+                }`}
+              >
+                <Star className="h-4 w-4" />
+                Awards
+              </button>
             </div>
           </aside>
 
           {/* Content Area */}
-          <main className="flex-1 bg-card border border-border/50 rounded-2xl p-6 lg:p-8 shadow-elevated">
+          <main className="flex-1 bg-card border border-border/50 rounded-2xl p-4 md:p-6 lg:p-8 shadow-elevated min-w-0 overflow-x-hidden">
             {activeTab === 'products' ? (
               <ProductsManager />
             ) : activeTab === 'projects' ? (
               <ProjectsManager />
-            ) : (
+            ) : activeTab === 'testimonials' ? (
               <TestimonialsManager />
+            ) : (
+              <AwardsManager />
             )}
           </main>
         </div>

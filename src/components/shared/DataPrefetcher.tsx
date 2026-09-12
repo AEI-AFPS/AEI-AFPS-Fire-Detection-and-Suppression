@@ -37,24 +37,7 @@ export function DataPrefetcher() {
           features: p.features,
         })) as Product[];
 
-        const staticProducts: Product[] = [
-          {
-            id: 'dustfree-wheel-cap',
-            title: 'Dustfree Cap Type Wheel',
-            description: 'Engineered to keep wheel hubs clean and fully protected from dust and debris during heavy-duty operation.',
-            category: 'advancements',
-            imageUrl: 'https://placehold.co/600x400/png?text=Dustfree+Cap',
-            features: ['Keeps wheel hubs clean', 'Protects from dust and debris', 'Engineered for heavy-duty operation'],
-          },
-          {
-            id: 'jumbo-wheel-chock',
-            title: 'Jumbo Wheel Chock',
-            description: 'Oversized chocks engineered for heavy mining vehicles.',
-            category: 'advancements',
-            imageUrl: 'https://placehold.co/600x400/png?text=Jumbo+Wheel+Chock',
-            features: ['Oversized for heavy mining vehicles', 'Reliable and stable parking', 'Effective on uneven terrain'],
-          },
-        ];
+        const staticProducts: Product[] = [];
 
         const mergedProducts = [...dbProducts];
         staticProducts.forEach((sp) => {

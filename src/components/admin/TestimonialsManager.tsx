@@ -98,16 +98,16 @@ export default function TestimonialsManager() {
   return (
     <div>
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
         <div>
-          <h2 className="font-heading text-2xl">Client / Testimonial Logos</h2>
+          <h2 className="font-heading text-xl sm:text-2xl">Client / Testimonial Logos</h2>
           <p className="text-sm text-muted-foreground mt-1">
             Manage the logos displayed in the "Trusted by Industry Leaders" marquee.
           </p>
         </div>
         <Button
           onClick={handleOpenAdd}
-          className="bg-gradient-flame text-white hover:scale-105 transition-transform border-0"
+          className="bg-gradient-flame text-white hover:scale-105 transition-transform border-0 self-start sm:self-auto"
         >
           <Plus className="h-4 w-4 mr-2" />
           Add Logo
@@ -116,7 +116,7 @@ export default function TestimonialsManager() {
 
       {/* Add / Edit Dialog */}
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="w-[95vw] max-w-md max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>{editingId ? 'Edit Logo' : 'Add Logo'}</DialogTitle>
           </DialogHeader>
@@ -177,14 +177,14 @@ export default function TestimonialsManager() {
 
       {/* Logo Grid */}
       {logos && logos.length > 0 ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
           {logos.map((logo) => (
             <div
               key={logo.id}
-              className="group relative border border-border/50 rounded-xl bg-muted/20 p-4 flex flex-col items-center gap-3 hover:border-flame-orange/40 hover:bg-muted/40 transition-all"
+              className="relative border border-border/50 rounded-xl bg-muted/20 p-3 flex flex-col items-center gap-2 hover:border-flame-orange/40 hover:bg-muted/40 transition-all"
             >
               {/* Logo image */}
-              <div className="w-full h-16 flex items-center justify-center">
+              <div className="w-full h-12 flex items-center justify-center">
                 <img
                   src={logo.image_url}
                   alt={logo.name}
@@ -197,27 +197,27 @@ export default function TestimonialsManager() {
               </div>
 
               {/* Name */}
-              <p className="text-xs font-medium text-center text-foreground/80 leading-tight truncate w-full text-center">
+              <p className="text-xs font-medium text-center text-foreground/80 leading-tight truncate w-full">
                 {logo.name}
               </p>
 
               {/* Sort badge */}
-              <span className="absolute top-2 left-2 text-[10px] bg-muted border border-border/50 px-1.5 py-0.5 rounded text-muted-foreground">
+              <span className="absolute top-1.5 left-1.5 text-[10px] bg-muted border border-border/50 px-1.5 py-0.5 rounded text-muted-foreground">
                 #{logo.sort_order}
               </span>
 
-              {/* Action buttons — shown on hover */}
-              <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+              {/* Action buttons — always visible on mobile */}
+              <div className="flex gap-1 mt-1">
                 <button
                   onClick={() => handleOpenEdit(logo)}
-                  className="bg-background border border-border/60 text-foreground hover:bg-muted p-1 rounded-md transition-colors"
+                  className="bg-background border border-border/60 text-foreground hover:bg-muted p-1.5 rounded-md transition-colors"
                   title="Edit"
                 >
                   <Edit2 className="h-3 w-3" />
                 </button>
                 <button
                   onClick={() => handleDelete(logo.id, logo.name)}
-                  className="bg-background border border-border/60 text-red-500 hover:bg-red-500/10 p-1 rounded-md transition-colors"
+                  className="bg-background border border-border/60 text-red-500 hover:bg-red-500/10 p-1.5 rounded-md transition-colors"
                   title="Delete"
                 >
                   <Trash2 className="h-3 w-3" />

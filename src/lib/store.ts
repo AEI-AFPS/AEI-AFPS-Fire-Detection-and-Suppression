@@ -1,6 +1,70 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from './supabase';
-import { Product, Project, TestimonialLogo } from '../types';
+import { Product, Project, TestimonialLogo, Award } from '../types';
+
+// ── Awards ──────────────────────────────────────────────────────────────────
+
+export const useAwards = () => {
+  return useQuery({
+    queryKey: ['awards'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('awards')
+        .select('*')
+        .order('sort_order', { ascending: true });
+      if (error) throw error;
+      return (data || []) as Award[];
+    },
+  });
+};
+
+export const useAddAward = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (award: Omit<Award, 'id' | 'created_at'>) => {
+      const { error } = await supabase.from('awards').insert(award);
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['awards'] });
+    },
+  });
+};
+
+export const useUpdateAward = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (award: Award) => {
+      const { error } = await supabase
+        .from('awards')
+        .update({
+          title: award.title,
+          description: award.description,
+          image_url: award.image_url,
+          year: award.year,
+          sort_order: award.sort_order,
+        })
+        .eq('id', award.id);
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['awards'] });
+    },
+  });
+};
+
+export const useDeleteAward = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (id: string) => {
+      const { error } = await supabase.from('awards').delete().eq('id', id);
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['awards'] });
+    },
+  });
+};
 
 // ── Products ────────────────────────────────────────────────────────────────
 
@@ -20,24 +84,7 @@ export const useProducts = () => {
         features: p.features,
       })) as Product[];
 
-      const staticProducts: Product[] = [
-        {
-          id: 'dustfree-wheel-cap',
-          title: 'Dustfree Cap Type Wheel',
-          description: 'Engineered to keep wheel hubs clean and fully protected from dust and debris during heavy-duty operation.',
-          category: 'advancements',
-          imageUrl: 'https://placehold.co/600x400/png?text=Dustfree+Cap',
-          features: ['Keeps wheel hubs clean', 'Protects from dust and debris', 'Engineered for heavy-duty operation']
-        },
-        {
-          id: 'jumbo-wheel-chock',
-          title: 'Jumbo Wheel Chock',
-          description: 'Oversized chocks engineered for heavy mining vehicles — providing reliable, stable parking on uneven terrain.',
-          category: 'advancements',
-          imageUrl: 'https://placehold.co/600x400/png?text=Jumbo+Wheel+Chock',
-          features: ['Oversized for heavy mining vehicles', 'Reliable and stable parking', 'Effective on uneven terrain']
-        }
-      ];
+      const staticProducts: Product[] = [];
 
       // Only append if they don't already exist in the DB
       const mergedProducts = [...dbProducts];

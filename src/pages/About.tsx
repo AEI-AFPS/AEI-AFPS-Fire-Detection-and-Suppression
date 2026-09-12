@@ -4,6 +4,7 @@ import { Testimonials } from '../components/shared/Testimonials';
 import { Globe3DDemo } from '../components/shared/GlobeDemo';
 import { CheckCircle, Target, Eye, Users, Flame } from 'lucide-react';
 import { GlowingEffect } from '../components/ui/glowing-effect';
+import { AwardsCarousel } from '../components/shared/AwardsCarousel';
 
 const milestones = [
   { year: '2004', title: 'Company Founded',       description: 'Established in Hyderabad with a vision to provide safety solutions.' },
@@ -252,8 +253,15 @@ const About = () => {
         </div>
       </section>
 
-      {/* ── Global Presence ── */}
-      <section className="section-padding overflow-hidden">
+      {/* ── Awards Section ── */}
+      <section className="py-8 md:py-16">
+        <div className="container-full">
+          <AwardsCarousel />
+        </div>
+      </section>
+
+      {/* ── Global Presence (Globe) ── */}
+      <section className="section-padding bg-muted/40 overflow-hidden relative">
         <div className="container-full flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
           <div className="text-center lg:text-left flex-1 relative z-10">
             <p className="text-flame-orange text-sm font-semibold uppercase tracking-[0.2em] mb-3">Global Reach</p>

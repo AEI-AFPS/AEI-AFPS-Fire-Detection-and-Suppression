@@ -126,22 +126,22 @@ export default function ProjectsManager() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="font-heading text-2xl">Projects (Case Studies)</h2>
-        <Button onClick={() => handleOpenForm()} className="bg-gradient-flame text-white hover:scale-105 transition-transform border-0">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+        <h2 className="font-heading text-xl sm:text-2xl">Projects (Case Studies)</h2>
+        <Button onClick={() => handleOpenForm()} className="bg-gradient-flame text-white hover:scale-105 transition-transform border-0 self-start sm:self-auto">
           <Plus className="h-4 w-4 mr-2" /> Add Project
         </Button>
       </div>
 
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 flex flex-col">
+        <DialogContent className="w-[95vw] max-w-4xl max-h-[90vh] overflow-y-auto p-0 flex flex-col">
           <DialogHeader className="p-6 pb-2 border-b sticky top-0 bg-background z-20">
             <DialogTitle>{editingId ? 'Edit Project' : 'New Project'}</DialogTitle>
           </DialogHeader>
           
           <div className="flex-1 p-6">
             <form id="project-form" onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5"><Label>Project ID</Label><Input value={formData.id} onChange={e => setFormData({...formData, id: e.target.value})} disabled={!!editingId} required /></div>
                 <div className="space-y-1.5"><Label>Title</Label><Input value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} required /></div>
                 <div className="space-y-1.5"><Label>Client</Label><Input value={formData.client} onChange={e => setFormData({...formData, client: e.target.value})} required /></div>
@@ -163,12 +163,12 @@ export default function ProjectsManager() {
 
               <div className="space-y-1.5">
                 <Label>Gallery Photos</Label>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {formData.photos?.map((photo, i) => (
                     <div key={i} className="relative aspect-video rounded-md overflow-hidden border group">
                       <img src={photo} alt="Gallery" className="w-full h-full object-cover" />
-                      <button type="button" onClick={() => removePhoto(i)} className="absolute top-1 right-1 bg-black/50 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                        <X className="w-4 h-4" />
+                      <button type="button" onClick={() => removePhoto(i)} className="absolute top-1 right-1 bg-black/60 text-white p-1 rounded-full">
+                        <X className="w-3 h-3" />
                       </button>
                     </div>
                   ))}
@@ -184,10 +184,10 @@ export default function ProjectsManager() {
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                <div className="space-y-1.5"><Label>Summary Description</Label><Textarea value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} rows={8} className="min-h-[150px]" required /></div>
-                <div className="space-y-1.5"><Label>The Challenge</Label><Textarea value={formData.challenge} onChange={e => setFormData({...formData, challenge: e.target.value})} rows={8} className="min-h-[150px]" required /></div>
-                <div className="space-y-1.5"><Label>Our Solution</Label><Textarea value={formData.solution} onChange={e => setFormData({...formData, solution: e.target.value})} rows={8} className="min-h-[150px]" required /></div>
+              <div className="grid grid-cols-1 gap-4">
+                <div className="space-y-1.5"><Label>Summary Description</Label><Textarea value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} rows={5} className="min-h-[120px]" required /></div>
+                <div className="space-y-1.5"><Label>The Challenge</Label><Textarea value={formData.challenge} onChange={e => setFormData({...formData, challenge: e.target.value})} rows={5} className="min-h-[120px]" required /></div>
+                <div className="space-y-1.5"><Label>Our Solution</Label><Textarea value={formData.solution} onChange={e => setFormData({...formData, solution: e.target.value})} rows={5} className="min-h-[120px]" required /></div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -259,7 +259,8 @@ export default function ProjectsManager() {
         </DialogContent>
       </Dialog>
 
-      <div className="border border-border/50 rounded-xl overflow-x-auto w-full">
+      <div className="border border-border/50 rounded-xl overflow-hidden">
+        <div className="overflow-x-auto w-full">
         <table className="w-full text-left text-sm min-w-[500px]">
           <thead className="bg-muted/50 border-b border-border/50">
             <tr>
@@ -287,6 +288,7 @@ export default function ProjectsManager() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

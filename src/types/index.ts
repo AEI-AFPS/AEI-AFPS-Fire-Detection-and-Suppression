@@ -43,3 +43,13 @@ export const categories = [
   { id: 'industrial-lighting', name: 'Industrial Lighting',          icon: 'Lightbulb' },
   { id: 'advancements',        name: 'Advancements',                 icon: 'Sparkles' },
 ];
+
+export interface Award {
+  id: string;
+  title: string;
+  description: string;
+  image_url: string;
+  year?: string;
+  sort_order: number;
+  created_at?: string;
+}

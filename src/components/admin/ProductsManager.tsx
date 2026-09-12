@@ -87,15 +87,15 @@ export default function ProductsManager() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="font-heading text-2xl">Products</h2>
-        <Button onClick={() => handleOpenForm()} className="bg-gradient-flame text-white hover:scale-105 transition-transform border-0">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+        <h2 className="font-heading text-xl sm:text-2xl">Products</h2>
+        <Button onClick={() => handleOpenForm()} className="bg-gradient-flame text-white hover:scale-105 transition-transform border-0 self-start sm:self-auto">
           <Plus className="h-4 w-4 mr-2" /> Add Product
         </Button>
       </div>
 
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-scroll p-0 flex flex-col">
+        <DialogContent className="w-[95vw] max-w-3xl max-h-[90vh] overflow-y-auto p-0 flex flex-col">
           <DialogHeader className="p-6 pb-2 border-b sticky top-0 bg-background z-20">
             <DialogTitle>{editingId ? 'Edit Product' : 'New Product'}</DialogTitle>
           </DialogHeader>
@@ -167,7 +167,8 @@ export default function ProductsManager() {
         </DialogContent>
       </Dialog>
 
-      <div className="border border-border/50 rounded-xl overflow-x-auto w-full">
+      <div className="border border-border/50 rounded-xl overflow-hidden">
+        <div className="overflow-x-auto w-full">
         <table className="w-full text-left text-sm min-w-[500px]">
           <thead className="bg-muted/50 border-b border-border/50">
             <tr>
@@ -197,6 +198,7 @@ export default function ProductsManager() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );
