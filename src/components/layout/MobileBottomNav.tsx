@@ -11,13 +11,13 @@ const mainNavItems = [
   { name: 'Home',     path: '/',         icon: Home },
   { name: 'About',    path: '/about',    icon: Info },
   { name: 'Products', path: '/products', icon: Package },
-  { name: 'Projects', path: '/projects', icon: FolderOpen },
+  { name: 'Contact',      path: '/contact',      icon: Phone },
 ];
 
 const menuItems = [
+  // { name: 'Projects', path: '/projects', icon: FolderOpen },
   { name: 'Advancements', path: '/advancements', icon: Cpu },
   { name: 'Applications', path: '/applications', icon: Wrench },
-  { name: 'Contact',      path: '/contact',      icon: Phone },
 ];
 
 const BROCHURES = [
