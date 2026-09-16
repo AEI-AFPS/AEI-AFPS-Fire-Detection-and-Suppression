@@ -82,7 +82,6 @@ export function HeroSection() {
           backgroundImage: "url('/aei%20truck.jpeg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          transform: 'scaleX(-1)'
         }}
       />
       <div className="absolute inset-0 bg-black/70 z-0" />
