@@ -50,7 +50,7 @@ export function WhyAEI() {
             Why Choose <span className="text-gradient-flame">Us</span>?
           </h2>
           <p className="text-muted-foreground mt-4 max-w-3xl mx-auto text-base lg:text-lg">
-            India's leading manufacturer of automatic fire detection and suppression systems for heavy earth-moving machinery.
+            Trusted and specialised manufacturer of automatic fire protection systems for heavy earth-moving machinery
           </p>
         </div>
 

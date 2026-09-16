@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { Shield, ArrowRight, CheckCircle, Flame, Zap } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+</style>
 
 /* ── Animated counter hook ── */
 function useCounter(target: number, duration: number = 1800) {
@@ -73,29 +76,39 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[88vh] lg:min-h-[80vh] flex items-center overflow-hidden w-full">
       {/* ── Background layers ── */}
-      <div className="absolute inset-0 gradient-hero" />
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: "url('/aei%20truck.jpeg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          transform: 'scaleX(-1)'
+        }}
+      />
+      <div className="absolute inset-0 bg-black/70 z-0" />
+      {/* <div className="absolute inset-0 gradient-hero opacity-60 z-0" /> */}
 
       {/* Grid overlay */}
-      <div className="absolute inset-0 grid-bg opacity-50" />
+      {/* <div className="absolute inset-0 grid-bg opacity-50" /> */}
 
       {/* Animated spotlight (Aceternity-style) */}
-      <div
+      {/* <div
         className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
           background: 'radial-gradient(ellipse at center, hsl(6 85% 42% / 0.18) 0%, transparent 65%)',
           animation: 'float 8s ease-in-out infinite',
         }}
-      />
-      <div
+      /> */}
+      {/* <div
         className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full pointer-events-none"
         style={{
           background: 'radial-gradient(ellipse at center, hsl(29 90% 54% / 0.12) 0%, transparent 60%)',
           animation: 'float 6s ease-in-out infinite reverse',
         }}
-      />
+      /> */}
 
       {/* Floating particles */}
-      {particles.map((p, i) => <Particle key={i} style={p} />)}
+      {/* {particles.map((p, i) => <Particle key={i} style={p} />)} */}
 
       {/* ── Content ── */}
       <div className="container-full relative z-10 py-16 xl:py-20">
@@ -120,7 +133,10 @@ export function HeroSection() {
             className="font-heading text-foreground leading-[1.1] tracking-tight mb-6 animate-fade-up"
             style={{ animationDelay: '100ms' }}
           >
-            <span className="text-gradient-flame  block text-5xl sm:text-6xl lg:text-7xl xl:text-8xl mb-3">
+            <style>
+              {`@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');`}
+            </style>
+            <span className="text-gradient-flame block font-bold text-5xl sm:text-5xl lg:text-6xl xl:text-7xl mb-3 " style={{ fontFamily: "'Montserrat', sans-serif" }}>
               ASSOCIATED ENGG. INDUSTRIES
             </span>
             <span className="text-white font-semibold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">Automatic Fire{' '}</span>{' '}
@@ -145,8 +161,9 @@ export function HeroSection() {
             {[
               'ISO 9001 Certified',
               'ISO 14001 Certified',
-              'MSME Approved', 
-              'IAF Approved',
+              'MSME Registered',
+              'ASCB Global', 
+              // 'IAF Approved',
               '10000+ Installations',
               'Pan-India Service',
             ].map((item) => (

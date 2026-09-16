@@ -6,6 +6,7 @@ export interface Product {
   imageUrl?: string;
   image_url?: string;
   features?: string[];
+  sort_order?: number;
 }
 
 export interface Project {
@@ -26,6 +27,7 @@ export interface Project {
   cover_image?: string;
   photos?: string[];
   sections?: { title: string; content: string }[];
+  sort_order?: number;
 }
 
 export interface TestimonialLogo {
@@ -39,7 +41,6 @@ export interface TestimonialLogo {
 export const categories = [
   { id: 'fire-detection',     name: 'Fire Detection & Suppression', icon: 'Flame' },
   { id: 'safety-monitoring',   name: 'Safety & Monitoring',          icon: 'Shield' },
-  { id: 'proximity-detection', name: 'Proximity & Detection',        icon: 'Radar' },
   { id: 'industrial-lighting', name: 'Industrial Lighting',          icon: 'Lightbulb' },
   { id: 'advancements',        name: 'Advancements',                 icon: 'Sparkles' },
 ];

@@ -15,7 +15,7 @@ const milestones = [
 ];
 
 const whyPoints = [
-  { title: '100% Resource Dedication', desc: 'Doing only this, and nothing else, for over two decades.' },
+  { title: '100% Resource Dedication', desc: 'Focused expertise in protecting heavy machinery from fire and related operational risks for over 20 years.' },
   { title: '75% Mining Focus', desc: 'Deep domain expertise serving the mining sector.' },
   { title: '1 of One', desc: 'The only company specializing in protecting off-road equipment from fire.' },
   { title: 'Customizable Solutions', desc: 'We engineer to customer need, not the lowest compliance bar.' },
@@ -114,16 +114,42 @@ const About = () => {
                 title: 'Our Mission',
                 text: 'To protect lives and assets through innovative fire detection and suppression technology, delivering reliable solutions that exceed regulatory requirements and customer expectations.',
               },
+              {
+                icon: Target,
+                title: 'Our Approach',
+                text: ( 
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-around ">
+                    <li className="flex flex-col">
+                      <strong className="text-foreground">Safety First</strong>
+                      <span className="mt-1 text-sm">Protection designed around real operating conditions.</span>
+                    </li>
+                    <li className="flex flex-col">
+                      <strong className="text-foreground">Engineering Reliability</strong>
+                      <span className="mt-1 text-sm">Robust systems for demanding industrial environments.</span>
+                    </li>
+                    <li className="flex flex-col">
+                      <strong className="text-foreground">Application-Focused Solutions</strong>
+                      <span className="mt-1 text-sm">Solutions selected and configured according to equipment and operating requirements.</span>
+                    </li>
+                    <li className="flex flex-col">
+                      <strong className="text-foreground">Service Support</strong>
+                      <span className="mt-1 text-sm">Installation, maintenance and technical assistance.</span>
+                    </li>
+                  </ul>
+                ),
+              },
             ].map((item) => (
-              <div key={item.title} className="relative p-[2px] rounded-2xl md:rounded-3xl hover:-translate-y-2 transition-transform duration-300">
+              <div key={item.title} className={`relative p-[2px] rounded-2xl md:rounded-3xl hover:-translate-y-2 transition-transform duration-300 ${item.title === 'Our Approach' ? 'md:col-span-2' : ''}`}>
                 <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
                 <div className="group bg-card border border-border/50 rounded-2xl p-8 lg:p-10 relative overflow-hidden h-full shadow-elevated">
                   <div className="absolute top-0 right-0 w-40 h-40 bg-flame-crimson/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative z-10 w-14 h-14 bg-flame-crimson/10 border border-flame-crimson/20 rounded-xl flex items-center justify-center mb-6">
-                    <item.icon className="h-7 w-7 text-flame-crimson" />
+                  <div className="relative z-10 flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 bg-flame-crimson/10 border border-flame-crimson/20 rounded-xl flex items-center justify-center shrink-0">
+                      <item.icon className="h-7 w-7 text-flame-crimson" />
+                    </div>
+                    <h3 className="font-heading text-2xl lg:text-3xl font-semibold group-hover:text-flame-crimson transition-colors m-0">{item.title}</h3>
                   </div>
-                  <h3 className="relative z-10 font-heading text-2xl lg:text-3xl font-semibold mb-4 group-hover:text-flame-crimson transition-colors">{item.title}</h3>
-                  <p className="relative z-10 text-muted-foreground leading-relaxed">{item.text}</p>
+                  <div className="relative z-10 text-muted-foreground leading-relaxed">{item.text}</div>
                   <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-flame group-hover:w-full transition-all duration-500 z-20" />
                 </div>
               </div>

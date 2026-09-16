@@ -263,7 +263,7 @@ export function ContactForm() {
         </div>
         <h3 className="font-heading text-xl font-semibold text-foreground">Message Received!</h3>
         <p className="text-muted-foreground text-sm max-w-xs">
-          We've received your inquiry and will get back to you within 24 hours.
+          We've received your enquiry and will get back to you within 24 hours.
         </p>
         <button
           onClick={() => setSubmitted(false)}
@@ -308,7 +308,7 @@ export function ContactForm() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="Krishna"
+            placeholder="Mallikarjun"
             maxLength={100}
             className={errors.name ? 'border-red-500 focus-visible:ring-red-500' : ''}
             required
@@ -370,7 +370,7 @@ export function ContactForm() {
             className={errors.email ? 'border-red-500 focus-visible:ring-red-500' : ''}
             value={formData.email}
             onChange={handleChange}
-            placeholder="krishna@example.com"
+            placeholder="Mallikarjun@example.com"
             maxLength={200}
           />
           {errors.email && (
@@ -430,7 +430,7 @@ export function ContactForm() {
         ) : (
           <>
             <Send className="mr-2 h-5 w-5" />
-            Submit Inquiry
+            Submit Enquiry
           </>
         )}
       </Button>

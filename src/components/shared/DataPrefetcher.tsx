@@ -25,7 +25,7 @@ export function DataPrefetcher() {
     queryClient.prefetchQuery({
       queryKey: ['products'],
       queryFn: async () => {
-        const { data, error } = await supabase.from('products').select('*');
+        const { data, error } = await supabase.from('products').select('*').order('sort_order', { ascending: true });
         if (error) throw error;
 
         const dbProducts = (data || []).map((p: any) => ({
@@ -35,6 +35,7 @@ export function DataPrefetcher() {
           category: p.category,
           imageUrl: p.image_url,
           features: p.features,
+          sort_order: p.sort_order,
         })) as Product[];
 
         const staticProducts: Product[] = [];
@@ -56,7 +57,7 @@ export function DataPrefetcher() {
     queryClient.prefetchQuery({
       queryKey: ['projects'],
       queryFn: async () => {
-        const { data, error } = await supabase.from('projects').select('*');
+        const { data, error } = await supabase.from('projects').select('*').order('sort_order', { ascending: true });
         if (error) throw error;
 
         const projects = (data || []).map((p: any) => ({
@@ -74,6 +75,7 @@ export function DataPrefetcher() {
           tags: p.tags || [],
           coverImage: p.cover_image,
           photos: p.photos || [],
+          sort_order: p.sort_order,
         })) as Project[];
 
         // Preload all cover images + gallery photos

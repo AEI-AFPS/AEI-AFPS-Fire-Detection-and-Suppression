@@ -24,7 +24,7 @@ export default function ProjectsManager() {
   const [formData, setFormData] = useState<Partial<Project>>({
     id: '', title: '', client: '', location: '', date: '', machineryType: '',
     units: 0, description: '', challenge: '', solution: '', 
-    advantages: [], tags: [], coverImage: '/placeholder.svg', photos: [], sections: []
+    advantages: [], tags: [], coverImage: '/placeholder.svg', photos: [], sections: [], sort_order: 0
   });
 
   const [advantageInput, setAdvantageInput] = useState('');
@@ -39,7 +39,7 @@ export default function ProjectsManager() {
       setFormData({ 
         id: `proj-${Date.now()}`, title: '', client: '', location: '', date: new Date().getFullYear().toString(), 
         machineryType: '', units: 0, description: '', challenge: '', solution: '', 
-        advantages: [], tags: [], coverImage: '/placeholder.svg', photos: [], sections: []
+        advantages: [], tags: [], coverImage: '/placeholder.svg', photos: [], sections: [], sort_order: 0
       });
     }
     setIsFormOpen(true);
@@ -149,6 +149,7 @@ export default function ProjectsManager() {
                 <div className="space-y-1.5"><Label>Date / Year</Label><Input value={formData.date} onChange={e => setFormData({...formData, date: e.target.value})} required /></div>
                 <div className="space-y-1.5"><Label>Machinery Type</Label><Input value={formData.machineryType} onChange={e => setFormData({...formData, machineryType: e.target.value})} required /></div>
                 <div className="space-y-1.5"><Label>Units Installed</Label><Input type="number" value={formData.units} onChange={e => setFormData({...formData, units: parseInt(e.target.value) || 0})} required /></div>
+                <div className="space-y-1.5"><Label>Sort Order</Label><Input type="number" value={formData.sort_order || 0} onChange={e => setFormData({...formData, sort_order: parseInt(e.target.value) || 0})} required /></div>
               </div>
 
               <div className="space-y-1.5">
@@ -267,6 +268,7 @@ export default function ProjectsManager() {
               <th className="p-4 font-semibold">Title</th>
               <th className="p-4 font-semibold">Client</th>
               <th className="p-4 font-semibold">Date</th>
+              <th className="p-4 font-semibold text-center">Sort Order</th>
               <th className="p-4 font-semibold text-right">Actions</th>
             </tr>
           </thead>
@@ -279,6 +281,7 @@ export default function ProjectsManager() {
                   <td className="p-4 font-medium">{p.title}</td>
                   <td className="p-4">{p.client}</td>
                   <td className="p-4 text-muted-foreground">{p.date}</td>
+                  <td className="p-4 text-center">{p.sort_order || 0}</td>
                   <td className="p-4 text-right flex items-center justify-end gap-2">
                     <Button variant="ghost" size="sm" onClick={() => handleOpenForm(p)}><Edit2 className="h-4 w-4" /></Button>
                     <Button variant="ghost" size="sm" onClick={() => handleDelete(p.id)} className="text-red-500 hover:text-red-600 hover:bg-red-500/10"><Trash2 className="h-4 w-4" /></Button>

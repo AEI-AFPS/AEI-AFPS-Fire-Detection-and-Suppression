@@ -76,7 +76,7 @@ export function CTASection() {
 
         {/* Trust row */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-white/60 text-sm">
-          {['DGMS Approved', 'ISO 9001', 'ISO 14001', '20+ Years Trusted', 'MSME Approved', 'IAF Approved'].map((t) => (
+          {['DGMS Approved', 'ISO 9001', 'ISO 14001', '20+ Years Trusted', 'MSME Registered', 'ASCB Global'].map((t) => (
             <span key={t} className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 bg-white/50 rounded-full" />
               {t}

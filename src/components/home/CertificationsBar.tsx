@@ -5,8 +5,8 @@ const certifications = [
   { icon: Award,       name: 'ISO 14001:2015', description: 'Environmental Mgmt.' },
   { icon: CheckCircle, name: 'DGMS Approved',  description: 'Mines Safety Certified' },
   { icon: Star,        name: '20+ Years',      description: 'Industry Experience' },
-  { icon: Award,       name: 'MSME Approved',  description: 'Micro, Small & Medium Enterprises' },
-  { icon: Award,       name: 'IAF Approved',   description: 'International Accreditation Forum' },
+  { icon: Award,       name: 'MSME Registered',  description: 'Micro, Small & Medium Enterprises' },
+  { icon: Award,       name: 'ASCB Global',  description: 'Accreditation of Certification Body' },
 ];
 
 export function CertificationsBar() {

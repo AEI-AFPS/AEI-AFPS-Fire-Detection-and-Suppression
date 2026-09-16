@@ -21,14 +21,7 @@ const categories = [
     accent: 'text-blue-400 bg-blue-500/10 border-blue-500/20',
     hover: 'group-hover:bg-blue-500/20 group-hover:border-blue-500/40',
   },
-  {
-    id: 'proximity-detection',
-    name: 'Proximity Detection',
-    description: 'Radar sensors and 360° collision avoidance systems',
-    icon: Radar,
-    accent: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20',
-    hover: 'group-hover:bg-emerald-500/20 group-hover:border-emerald-500/40',
-  },
+
   {
     id: 'industrial-lighting',
     name: 'Industrial Lighting',

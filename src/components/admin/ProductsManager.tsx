@@ -21,7 +21,7 @@ export default function ProductsManager() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [formData, setFormData] = useState<Partial<Product>>({
-    id: '', title: '', description: '', category: 'fire-detection', imageUrl: '/placeholder.svg', features: []
+    id: '', title: '', description: '', category: 'fire-detection', imageUrl: '/placeholder.svg', features: [], sort_order: 0
   });
   const [featureInput, setFeatureInput] = useState('');
 
@@ -31,7 +31,7 @@ export default function ProductsManager() {
       setFormData({ ...product });
     } else {
       setEditingId(null);
-      setFormData({ id: `prod-${Date.now()}`, title: '', description: '', category: 'fire-detection', imageUrl: '/placeholder.svg', features: [] });
+      setFormData({ id: `prod-${Date.now()}`, title: '', description: '', category: 'fire-detection', imageUrl: '/placeholder.svg', features: [], sort_order: 0 });
     }
     setIsFormOpen(true);
   };
@@ -122,6 +122,10 @@ export default function ProductsManager() {
                     {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
                   </select>
                 </div>
+                <div className="space-y-1.5">
+                  <Label>Sort Order</Label>
+                  <Input type="number" value={formData.sort_order || 0} onChange={e => setFormData({...formData, sort_order: parseInt(e.target.value) || 0})} required />
+                </div>
               </div>
               
               <div className="space-y-1.5">
@@ -174,6 +178,7 @@ export default function ProductsManager() {
             <tr>
               <th className="p-4 font-semibold">Title</th>
               <th className="p-4 font-semibold">Category</th>
+              <th className="p-4 font-semibold text-center">Sort Order</th>
               <th className="p-4 font-semibold">ID</th>
               <th className="p-4 font-semibold text-right">Actions</th>
             </tr>
@@ -188,6 +193,7 @@ export default function ProductsManager() {
                   <td className="p-4">
                     <span className="bg-muted px-2 py-1 rounded text-xs">{categories.find(c => c.id === p.category)?.name || p.category}</span>
                   </td>
+                  <td className="p-4 text-center">{p.sort_order || 0}</td>
                   <td className="p-4 text-muted-foreground font-mono text-xs">{p.id}</td>
                   <td className="p-4 text-right flex items-center justify-end gap-2">
                     <Button variant="ghost" size="sm" onClick={() => handleOpenForm(p)}><Edit2 className="h-4 w-4" /></Button>

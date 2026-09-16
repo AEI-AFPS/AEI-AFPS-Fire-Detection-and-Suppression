@@ -21,7 +21,7 @@ const contactItems = [
         +91 79953 28191
       </a>
     ),
-    sub: 'For sales and general inquiries',
+    sub: 'For sales and general enquiries',
   },
   {
     icon: Mail,
@@ -71,7 +71,7 @@ const Contact = () => {
             Contact <span className="text-gradient-flame">Us</span>
           </h1>
           <p className="text-lg text-white/70 max-w-2xl animate-fade-up delay-200">
-            Get in touch with our team for inquiries, quotes, or technical support.
+            Get in touch with our team for enquiries, quotes, or technical support.
           </p>
         </div>
       </section>
@@ -119,7 +119,7 @@ const Contact = () => {
                   <div className="w-9 h-9 bg-flame-crimson/10 border border-flame-crimson/20 rounded-lg flex items-center justify-center">
                     <MessageSquare className="h-5 w-5 text-flame-orange" />
                   </div>
-                  <h2 className="font-heading text-xl md:text-2xl text-foreground">send us a message</h2>
+                  <h2 className="font-heading text-xl md:text-2xl text-foreground">send an enquiry</h2>
                 </div>
                 <p className="relative z-10 text-muted-foreground text-sm mb-6">
                   Fill out the form below and our team will get back to you shortly.
