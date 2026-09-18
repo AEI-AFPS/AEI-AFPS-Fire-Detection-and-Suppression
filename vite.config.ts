@@ -11,4 +11,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  envPrefix: ['VITE_', 'SUPABASE_', 'CONTACT_', 'COMPANY_', 'WHATSAPP_'],
 });

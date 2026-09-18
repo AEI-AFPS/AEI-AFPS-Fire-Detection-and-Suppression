@@ -147,9 +147,7 @@ export function HeroSection() {
             className="text-lg md:text-xl lg:text-2xl text-white/70 mb-10 leading-relaxed max-w-3xl animate-fade-up"
             style={{ animationDelay: '200ms' }}
           >
-            Protecting mining and construction equipment with cutting-edge fire
-            suppression technology. Trusted by industry leaders across India for
-            over two decades.
+            Engineered fire protection solution for heavy earth-moving machinery, mining and construction equipment. Trusted by industry leaders across India for over two decades.
           </p>
 
           {/* Trust signals */}
