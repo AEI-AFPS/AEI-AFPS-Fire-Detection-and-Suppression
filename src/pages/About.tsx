@@ -15,7 +15,7 @@ const milestones = [
 ];
 
 const whyPoints = [
-  { title: '100% Resource Dedication', desc: 'Focused expertise in protecting heavy machinery from fire and related operational risks for over 20 years.' },
+  { title: 'Dedicated Experties', desc: 'Focused expertise in protecting heavy machinery from fire and related operational risks for over 20 years.' },
   { title: '75% Mining Focus', desc: 'Deep domain expertise serving the mining sector.' },
   { title: '1 of One', desc: 'The only company specializing in protecting off-road equipment from fire.' },
   { title: 'Customizable Solutions', desc: 'We engineer to customer need, not the lowest compliance bar.' },

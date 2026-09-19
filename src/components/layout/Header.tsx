@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Phone, Mail, FileText, ChevronDown, CheckSquare, Square } from 'lucide-react';
+import { Phone, Mail, FileText, ChevronDown, CheckSquare, Square, Download } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import logo from '/tiff_logo_optimized.webp';
 import { cn } from '../../lib/utils';
 import { CONTACT_PHONE, CONTACT_EMAIL } from '../../config/contact';
+import { usePWAInstall } from '../../hooks/usePWAInstall';
 
 const navLinks = [
   { name: 'Home',         path: '/' },
@@ -32,6 +33,23 @@ const BROCHURES = [
     filename: 'AEI-General-Brochure.pdf',
   },
 ] as const;
+
+function InstallAppButtonDesktop() {
+  const { isInstallable, installApp } = usePWAInstall();
+
+  if (!isInstallable) return null;
+
+  return (
+    <Button
+      onClick={installApp}
+      variant="outline"
+      className="ml-2 text-sm font-semibold border-border hover:bg-muted/50 transition-colors hidden xl:flex items-center gap-2"
+    >
+      <Download className="h-4 w-4" />
+      Install App
+    </Button>
+  );
+}
 
 export function Header() {
   const location = useLocation();
@@ -152,6 +170,9 @@ export function Header() {
                 )}
               </Link>
             ))}
+
+            {/* ── Install App Button ── */}
+            <InstallAppButtonDesktop />
 
             {/* ── Brochure Dropdown ── */}
             <div ref={dropdownRef} className="relative ml-3">

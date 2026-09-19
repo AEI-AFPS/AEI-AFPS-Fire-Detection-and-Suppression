@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Home, Info, Package, FolderOpen, Menu, Cpu, Wrench, Phone,
-  ChevronRight, FileText, CheckSquare, Square,
+  ChevronRight, FileText, CheckSquare, Square, Download
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
+import { usePWAInstall } from '../../hooks/usePWAInstall';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '../../components/ui/sheet';
 
 const mainNavItems = [
@@ -205,10 +206,30 @@ export function MobileBottomNav() {
                   </div>
                 )}
               </div>
+              {/* ── Install App section ── */}
+              <InstallAppButtonMobile />
             </div>
           </SheetContent>
         </Sheet>
       </div>
     </nav>
+  );
+}
+
+function InstallAppButtonMobile() {
+  const { isInstallable, installApp } = usePWAInstall();
+
+  if (!isInstallable) return null;
+
+  return (
+    <div className="border-t border-border/50 mt-1">
+      <button
+        onClick={installApp}
+        className="w-full flex items-center gap-4 px-6 py-4 transition-colors hover:bg-muted/50 text-foreground"
+      >
+        <Download className="h-5 w-5 text-flame-orange" />
+        <span className="text-sm font-medium">Install App</span>
+      </button>
+    </div>
   );
 }
